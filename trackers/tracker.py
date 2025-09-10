@@ -200,6 +200,20 @@ class Tracker:
                 if player.get('has_ball',False):
                     frame = self.draw_traingle(frame, player["bbox"],(0,0,255))
 
+                # Draw Jersey Number
+                jersey_number = player.get('jersey_number', -1)
+                if jersey_number != -1:
+                    x_center, y2 = get_center_of_bbox(player["bbox"])
+                    cv2.putText(
+                        frame,
+                        f"JN: {jersey_number}",
+                        (x_center - 20, y2 + 30),  # Below ellipse
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        0.6,
+                        color,
+                        2
+                    )
+
             # Draw Referee
             for _, referee in referee_dict.items():
                 frame = self.draw_ellipse(frame, referee["bbox"],(0,255,255))

@@ -1,2 +1,14 @@
-*__pycahce__*
+# Large binary files
+models/*.pt
+input_videos/*.mp4
+output_videos/*.avi
+
+# Stubs (optional, if regenerable)
+stubs/*.pkl
+
+# Python cache
+__pycache__/
 *.pyc
+
+# Virtual environment
+venv/

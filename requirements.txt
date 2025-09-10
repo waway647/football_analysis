@@ -1,0 +1,7 @@
+## Requirements
+ultralytics
+supervision
+opencv-python
+numpy
+matplotlib
+pandas

@@ -7,6 +7,7 @@ from player_ball_assigner import PlayerBallAssigner
 from camera_movement_estimator import CameraMovementEstimator
 from view_transformer import ViewTransformer
 from speed_and_distance_estimator import SpeedAndDistance_Estimator
+from jersey_number_recognizer import add_jersey_numbers
 
 
 def main():
@@ -54,6 +55,10 @@ def main():
             tracks['players'][frame_num][player_id]['team'] = team 
             tracks['players'][frame_num][player_id]['team_color'] = team_assigner.team_colors[team]
 
+    # Assign Player Jersey Numbers
+    tracks = add_jersey_numbers(tracks, 'input_videos/08fd33_4.mp4',
+                                read_from_stub=True, 
+                                stub_path='stubs/tracks_with_jersey.pkl')
     
     # Assign Ball Aquisition
     player_assigner =PlayerBallAssigner()
